@@ -1,29 +1,42 @@
-# crypto_project
+# Crypto Project
 
-## Project setup
+Crypto is a full stack JavaScript application with an Express server and MongoDB database.
+
+## Getting Started
+
+These instructions will get you a copy of the project up and running on your local machine for development purposes.
+
+### Server
+
+Install server dependencies:
+
 ```
+cd server
 npm install
 ```
 
-### Compiles and hot-reloads for development
+Run a mongoDB server:
+
 ```
-npm run serve
+mongod
 ```
 
-### Compiles and minifies for production
+Seed the database:
+
 ```
-npm run build
+npm run seeds
 ```
 
-### Run your tests
+Run express:
+
 ```
-npm run test
+npm run server:dev
 ```
 
-### Lints and fixes files
-```
-npm run lint
-```
+### Client
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+```
+cd ../client
+npm install
+num run serve
+```
