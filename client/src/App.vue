@@ -22,7 +22,8 @@ export default {
       poloniex: [],
       portfolio: [],
       totalValue: 0,
-      
+      cryptoGraphLabels: [],
+      cryptoGraphValues: []
     }
   },
   methods: {
@@ -53,6 +54,8 @@ export default {
         for (var currency of this.shrimpy) {
           // console.log(currency.symbol);
           if (currency.symbol === asset.code) {
+            this.cryptoGraphLabels.push(asset.name);
+            this.cryptoGraphValues.push(asset.amount * currency.priceUsd)
             totalValue += (asset.amount * currency.priceUsd)
           }
         }
