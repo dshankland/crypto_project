@@ -43,12 +43,34 @@ export default {
     fetchPortfolio: function () {
       PortfolioService.getPortfolio()
       .then(portfolio => this.portfolio = portfolio)
-    }
+    },
+    calculateTotalVal: function () {
+      var totalValue = 0;
+      for (var asset in this.portfolio) {
+        for (var currency in this.shrimpy) {
+          if (currency.symbol === asset.code) {
+            totalValue += (asset.amount * currency.priceUsd)
+          }
+        }
+      }
+      this.totalValue = totalValue;
+    },
+    fetchAll: function () {
+      fetch('https://cors-anywhere.herokuapp.com/https://dev-api.shrimpy.io/v1/exchanges/poloniex/ticker')
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        this.shrimpy = data;
+        PortfolioService.getPortfolio()
+        .then(portfolio => this.portfolio = portfolio)
+      })
+      }
   },
   mounted(){
-    this.fetchShrimpyTicker();
+    // this.fetchShrimpyTicker();
     this.fetchPoloniex();
-    this.fetchPortfolio();
+    // this.fetchPortfolio();
+    // this.calculateTotalVal();
   }
 }
 </script>
