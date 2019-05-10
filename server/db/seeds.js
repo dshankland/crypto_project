@@ -1,7 +1,7 @@
 use crypto_knight;
 db.dropDatabase();
 
-db.bookings.insertMany([
+db.portfolio.insertMany([
   {
     code: 'DASH',
     name: 'Dash',
