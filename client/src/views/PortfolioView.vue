@@ -1,9 +1,19 @@
 <template lang="html">
-<h1>Portfolio View</h1>
+<div><h1>Portfolio View</h1>
+  <PortfolioGrid/>
+  <CurrenciesList/>
+</div>
 </template>
 
 <script>
+import PortfolioGrid from '@/components/PortfolioGrid.vue';
+import CurrenciesList from '@/components/CurrenciesList.vue';
+
 export default {
+  components: {
+    PortfolioGrid,
+    CurrenciesList,
+  }
 }
 </script>
 
