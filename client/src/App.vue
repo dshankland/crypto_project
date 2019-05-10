@@ -21,7 +21,8 @@ export default {
       shrimpy: [],
       poloniex: [],
       portfolio: [],
-      totalValue: 1000,
+      totalValue: 0,
+      
     }
   },
   methods: {
@@ -45,12 +46,12 @@ export default {
       .then(portfolio => this.portfolio = portfolio)
     },
     calculateTotalVal: function () {
-      console.log(this.portfolio);
+      // console.log(this.portfolio);
       var totalValue = 0;
-      for (var asset in this.portfolio) {
-        console.log(asset);
-        for (var currency in this.shrimpy) {
-          console.log(currency.symbol);
+      for (var asset of this.portfolio) {
+        // console.log(asset.name);
+        for (var currency of this.shrimpy) {
+          // console.log(currency.symbol);
           if (currency.symbol === asset.code) {
             totalValue += (asset.amount * currency.priceUsd)
           }
@@ -62,7 +63,7 @@ export default {
       fetch('https://cors-anywhere.herokuapp.com/https://dev-api.shrimpy.io/v1/exchanges/poloniex/ticker')
       .then(res => res.json())
       .then(data => {
-        console.log(data);
+        // console.log(data);
         this.shrimpy = data;
         PortfolioService.getPortfolio()
         .then((portfolio) => {
