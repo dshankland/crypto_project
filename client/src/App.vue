@@ -45,9 +45,12 @@ export default {
       .then(portfolio => this.portfolio = portfolio)
     },
     calculateTotalVal: function () {
+      console.log(this.portfolio);
       var totalValue = 0;
       for (var asset in this.portfolio) {
+        console.log(asset);
         for (var currency in this.shrimpy) {
+          console.log(currency.symbol);
           if (currency.symbol === asset.code) {
             totalValue += (asset.amount * currency.priceUsd)
           }
@@ -62,15 +65,19 @@ export default {
         console.log(data);
         this.shrimpy = data;
         PortfolioService.getPortfolio()
-        .then(portfolio => this.portfolio = portfolio)
+        .then((portfolio) => {
+          this.portfolio = portfolio;
+          this.calculateTotalVal();
+        })
       })
-      }
+    },
   },
   mounted(){
     // this.fetchShrimpyTicker();
     this.fetchPoloniex();
     // this.fetchPortfolio();
     // this.calculateTotalVal();
+    this.fetchAll();
   }
 }
 </script>
