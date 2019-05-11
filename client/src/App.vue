@@ -3,7 +3,7 @@
    <Header/>
    <Greeting :value="totalValue"/>
    <NavBar/>
-   <router-view id="view" :shrimpy="shrimpy" :cryptoGraphLabels="cryptoGraphLabels" :cryptoGraphValues="cryptoGraphValues"/>
+   <router-view id="view" :totalValue="totalValue" :shrimpy="shrimpy" :cryptoGraphLabels="cryptoGraphLabels" :cryptoGraphValues="cryptoGraphValues"/>
  </div>
 </template>
 
@@ -24,6 +24,7 @@ export default {
       totalValue: 0,
       cryptoGraphLabels: [],
       cryptoGraphValues: []
+
     }
   },
   methods: {

@@ -2,7 +2,7 @@
   <div>
 <h1>Summary View</h1>
 <CryptoGraph :cryptoGraphLabels="cryptoGraphLabels" :cryptoGraphValues="cryptoGraphValues"/>
-<Wishlist/>
+<Wishlist :totalValue="totalValue"/>
 </div>
 </template>
 
@@ -18,7 +18,8 @@ export default {
 
   props: [
     "cryptoGraphLabels",
-    "cryptoGraphValues"
+    "cryptoGraphValues",
+    "totalValue"
   ]
 }
 </script>
