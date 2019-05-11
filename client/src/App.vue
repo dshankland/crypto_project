@@ -1,9 +1,9 @@
 <template lang="html">
  <div id="main">
-   <Header/>
-   <Greeting :value="totalValue"/>
-   <NavBar/>
-   <router-view id="view" :totalValue="totalValue" :shrimpy="shrimpy" :cryptoGraphLabels="cryptoGraphLabels" :cryptoGraphValues="cryptoGraphValues"/>
+  <Header/>
+  <Greeting :value="totalValue"/>
+  <NavBar/>
+  <router-view id="view" :totalValue="totalValue" :shrimpy="shrimpy" :cryptoGraphLabels="cryptoGraphLabels" :cryptoGraphValues="cryptoGraphValues"/>
  </div>
 </template>
 
@@ -93,4 +93,5 @@ export default {
 
 #view {
     }
+
 </style>
