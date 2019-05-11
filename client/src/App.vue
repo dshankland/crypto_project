@@ -5,7 +5,7 @@
 
    <Greeting :value="totalValue"/>
    <NavBar/>
-   <router-view id="view"/>
+   <router-view id="view" :cryptoGraphLabels="cryptoGraphLabels" :cryptoGraphValues="cryptoGraphValues"/>
  </div>
 </template>
 

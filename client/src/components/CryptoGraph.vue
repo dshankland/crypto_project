@@ -15,19 +15,24 @@ document.addEventListener('DOMContentLoaded', function () {
             text: 'Your asset values'
         },
         xAxis: {
-            categories: ['Bitcoin', 'Zcash', 'Ethereum', 'NikNaks', 'Scampi Fries']
+            categories: this.cryptoGraphLabels
         },
         yAxis: {
             title: {
-                text: 'Portfolio assets'
+                text: 'asset value in USD'
             }
         },
         series: [{
-            data: [13, 10, 4, 34, 2]
+            name: 'Currency',
+            data: this.cryptoGraphValues
         }]
     });
 });
 export default {
+  props: [
+    "cryptoGraphLabels",
+    "cryptoGraphValues"
+  ]
 }
 </script>
 
