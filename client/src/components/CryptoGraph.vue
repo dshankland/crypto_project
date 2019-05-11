@@ -1,13 +1,14 @@
 <template lang="html">
-<div id="container" style="min-width: 300px; height: 300px; margin: 0 auto">
+<div id="container">
 
 </div>
 </template>
 
 <script>
 
-document.addEventListener('DOMContentLoaded', function () {
-    const myChart = Highcharts.chart('container', {
+
+    const myChart = setTimeout(function () {
+      Highcharts.chart('container', {
         chart: {
             type: 'column'
         },
@@ -15,19 +16,26 @@ document.addEventListener('DOMContentLoaded', function () {
             text: 'Your asset values'
         },
         xAxis: {
-            categories: ['Bitcoin', 'Zcash', 'Ethereum', 'NikNaks', 'Scampi Fries']
+            categories: this.cryptoGraphLabels
         },
         yAxis: {
             title: {
-                text: 'Portfolio assets'
+                text: 'asset value in USD'
             }
         },
         series: [{
-            data: [13, 10, 4, 34, 2]
+            name: 'Currency',
+            data:  this.cryptoGraphValues
         }]
     });
-});
+
+ }, 2000);
+
 export default {
+  props: [
+    "cryptoGraphLabels",
+    "cryptoGraphValues"
+  ]
 }
 </script>
 

@@ -3,7 +3,7 @@
    <Header/>
    <Greeting :value="totalValue"/>
    <NavBar/>
-   <router-view :shrimpy="shrimpy" id="view"/>
+   <router-view id="view" :shrimpy="shrimpy" :cryptoGraphLabels="cryptoGraphLabels" :cryptoGraphValues="cryptoGraphValues"/>
  </div>
 </template>
 
