@@ -1,6 +1,6 @@
 <template lang="html">
 <div class="currency-list-item">
-  {{ currency.name }} {{ currency.priceUsd | toTwoDecPlaces }} <input type="number" name="amount" min="1" v-model="amount" placeholder="enter amount"> <button v-on:click="handleBuy()">BUY</button>
+  {{ currency.name }} {{ currency.priceUsd | toCurrency }} <input type="number" name="amount" min="1" v-model="amount" placeholder="enter amount"> <button v-on:click="handleBuy()">BUY</button>
 </div>
 </template>
 
@@ -18,6 +18,9 @@ export default {
   filters: {
     toTwoDecPlaces: function (value) {
       return parseFloat(value).toFixed(2);
+    },
+    toCurrency: function (value) {
+      return new Intl.NumberFormat('en-US',  { style: 'currency', currency: 'USD' }).format(value);
     }
   },
   methods: {
