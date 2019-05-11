@@ -1,13 +1,14 @@
 <template lang="html">
-<div id="container" style="min-width: 300px; height: 300px; margin: 0 auto">
+<div id="container">
 
 </div>
 </template>
 
 <script>
 
-document.addEventListener('DOMContentLoaded', function () {
-    const myChart = Highcharts.chart('container', {
+
+    const myChart = setTimeout(function () {
+      Highcharts.chart('container', {
         chart: {
             type: 'column'
         },
@@ -24,10 +25,12 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         series: [{
             name: 'Currency',
-            data: this.cryptoGraphValues
+            data:  this.cryptoGraphValues
         }]
     });
-});
+
+ }, 2000);
+
 export default {
   props: [
     "cryptoGraphLabels",
