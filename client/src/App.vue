@@ -5,7 +5,7 @@
 
    <Greeting :value="totalValue"/>
    <NavBar/>
-   <router-view id="view"/>
+   <router-view :shrimpy="shrimpy" id="view"/>
  </div>
 </template>
 
@@ -13,6 +13,7 @@
 import NavBar from '@/components/NavBar';
 import Greeting from '@/components/Greeting';
 import PortfolioService from '@/services/PortfolioService';
+import { eventBus } from '@/main';
 
 export default {
   components: { NavBar, Greeting},
@@ -82,6 +83,7 @@ export default {
     // this.fetchPortfolio();
     // this.calculateTotalVal();
     this.fetchAll();
+    eventBus.$on('refresh-data', this.fetchAll)
   }
 }
 </script>
