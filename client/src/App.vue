@@ -1,21 +1,21 @@
 <template lang="html">
  <div id="main">
-
-
-
+   <Header/>
    <Greeting :value="totalValue"/>
    <NavBar/>
-   <router-view id="view" :cryptoGraphLabels="cryptoGraphLabels" :cryptoGraphValues="cryptoGraphValues"/>
+   <router-view id="view" :shrimpy="shrimpy" :cryptoGraphLabels="cryptoGraphLabels" :cryptoGraphValues="cryptoGraphValues"/>
  </div>
 </template>
 
 <script>
+import Header from '@/components/Header'
 import NavBar from '@/components/NavBar';
 import Greeting from '@/components/Greeting';
 import PortfolioService from '@/services/PortfolioService';
+import { eventBus } from '@/main';
 
 export default {
-  components: { NavBar, Greeting},
+  components: { Header, NavBar, Greeting},
   data() {
     return {
       shrimpy: [],
@@ -82,6 +82,7 @@ export default {
     // this.fetchPortfolio();
     // this.calculateTotalVal();
     this.fetchAll();
+    eventBus.$on('refresh-data', this.fetchAll)
   }
 }
 </script>
