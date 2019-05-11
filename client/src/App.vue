@@ -1,8 +1,6 @@
 <template lang="html">
  <div id="main">
-
-
-
+   <Header/>
    <Greeting :value="totalValue"/>
    <NavBar/>
    <router-view :shrimpy="shrimpy" id="view"/>
@@ -10,13 +8,14 @@
 </template>
 
 <script>
+import Header from '@/components/Header'
 import NavBar from '@/components/NavBar';
 import Greeting from '@/components/Greeting';
 import PortfolioService from '@/services/PortfolioService';
 import { eventBus } from '@/main';
 
 export default {
-  components: { NavBar, Greeting},
+  components: { Header, NavBar, Greeting},
   data() {
     return {
       shrimpy: [],
