@@ -48,10 +48,8 @@ const createRouter = function (collection) {
       .insertOne(newData)
       .then(() => collection.find().toArray())
       .then((docs) => res.json(docs));
-      
+
       });
-
-
 
   router.put('/:id', (req, res) => {
     const id = req.params.id;
