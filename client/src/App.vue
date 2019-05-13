@@ -29,8 +29,8 @@ export default {
       totalValue: 0,
       cryptoGraphLabels: [],
       cryptoGraphValues: [],
-      cryptoGraphCodes: []
-
+      cryptoGraphCodes: [],
+      poloniex_map: new Map()
     }
   },
   methods: fetchMethods.default,

@@ -27,11 +27,11 @@ import {eventBus} from '@/main.js'
 import PortfolioService from '@/services/PortfolioService.js'
 
 export default {
-  props: ["portfolio", "shrimpy", "poloniex"],
+  props: ["portfolio", "shrimpy", "poloniex", "poloniex_map"],
   data(){
     return {
       assets: [],
-      
+
     };
 
   },
