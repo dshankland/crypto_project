@@ -1,8 +1,9 @@
 <template lang="html">
 <div><h1>Portfolio View</h1>
-  <PortfolioGrid/>
+  <PortfolioGrid :shrimpy="shrimpy" :portfolio="portfolio"/>
   <CurrenciesList/>
 </div>
+
 </template>
 
 <script>
@@ -13,7 +14,8 @@ export default {
   components: {
     PortfolioGrid,
     CurrenciesList,
-  }
+  },
+  props: ["portfolio", "shrimpy"]
 }
 </script>
 
