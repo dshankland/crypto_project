@@ -36,6 +36,7 @@ export default {
     this.totalValue = totalValue;
   },
   fetchAll: function () {
+
     fetch('https://cors-anywhere.herokuapp.com/https://dev-api.shrimpy.io/v1/exchanges/poloniex/ticker')
     .then(res => res.json())
     .then(data => {
@@ -50,6 +51,7 @@ export default {
       })
       PortfolioService.getPortfolio()
       .then((portfolio) => {
+        console.log('fetching all', portfolio);
         this.portfolio = portfolio;
         this.calculateTotalVal();
 
