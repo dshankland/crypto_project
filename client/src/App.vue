@@ -3,7 +3,7 @@
   <Header/>
   <Greeting :value="totalValue"/>
   <NavBar/>
-  <router-view id="view" :totalValue="totalValue" :shrimpy="shrimpy" :shrimpy_old="shrimpy_old" :portfolio="portfolio" :cryptoGraphLabels="cryptoGraphLabels" :cryptoGraphValues="cryptoGraphValues"/>
+  <router-view id="view" :totalValue="totalValue" :shrimpy="shrimpy" :shrimpy_old="shrimpy_old" :shrimpy_icons="shrimpy_icons" :portfolio="portfolio" :cryptoGraphLabels="cryptoGraphLabels" :cryptoGraphValues="cryptoGraphValues"/>
  </div>
 </template>
 
@@ -21,6 +21,7 @@ export default {
     return {
       shrimpy_old: [],
       shrimpy: new Map(),
+      shrimpy_icons: new Map(),
       poloniex: [],
       portfolio: [],
       totalValue: 0,
