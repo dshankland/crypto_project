@@ -52,8 +52,12 @@ const createRouter = function (collection) {
       });
 
   router.put('/:id', (req, res) => {
+      console.log('route hit!', req.body);
     const id = req.params.id;
+    console.log('id', id);
     const updatedData = req.body;
+    delete updatedData._id;
+
     collection
     .findOneAndUpdate(
       { _id: ObjectID(id) },
@@ -61,6 +65,7 @@ const createRouter = function (collection) {
       { returnOriginal: false }
     )
     .then((result) => {
+
       res.json(result.value)
     })
     .catch((err) => {
@@ -68,6 +73,8 @@ const createRouter = function (collection) {
       res.status(500);
       res.json({ status: 500, error: err});
     });
+
+
   });
 
   return router
