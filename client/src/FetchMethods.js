@@ -15,20 +15,29 @@ export default {
     .then(portfolio => this.portfolio = portfolio)
   },
   fetchPoloniex: function (){
-    fetch('https://poloniex.com/public?command=returnChartData&currencyPair=USDT_BTC&start=1546300800&end=1546646400&period=14400')
-    .then(res => res.json())
-    .then(data => {
-      this.poloniex = data;
+    const promises = this.cryptoGraphCodes.map(code => {
+      const end = ((new Date).getTime())/1000;
+      const start = end - 604800
+      return fetch(`https://poloniex.com/public?command=returnChartData&currencyPair=USDT_${code}&start=${start}&end=${end}&period=86400`)
+      .then(res => res.json())
     })
+
+    Promise.all(promises)
+    .then(data => this.poloniex = data)
   },
 
+
   calculateTotalVal: function () {
+    this.cryptoGraphCodes = [];
+    this.cryptoGraphLabels = [];
+    this.cryptoGraphValues = [];
     var totalValue = 0;
     for (var asset of this.portfolio) {
       for (var currency of this.shrimpy_old) {
         if (currency.symbol === asset.code) {
           this.cryptoGraphLabels.push(asset.name);
-          this.cryptoGraphValues.push(asset.amount * currency.priceUsd)
+          this.cryptoGraphValues.push(asset.amount * currency.priceUsd);
+          this.cryptoGraphCodes.push(asset.code);
           totalValue += (asset.amount * currency.priceUsd)
         }
       }
@@ -55,7 +64,10 @@ export default {
         this.portfolio = portfolio;
         this.calculateTotalVal();
 
+      this.fetchPoloniex();
       })
+
+
     })
     }
 }
