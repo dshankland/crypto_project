@@ -41,10 +41,17 @@ export default {
       this.shrimpy_old = data;
       this.shrimpy = new Map(data.map(i => [i.symbol.toLowerCase(), i]));
 
+      fetch('https://cors-anywhere.herokuapp.com/https://dev-api.shrimpy.io/v1/exchanges/poloniex/assets')
+      .then(res => res.json())
+      .then(data => {
+        this.shrimpy_icons = new Map(data.map(i => [i.symbol.toLowerCase(), i]));
+
+      })
       PortfolioService.getPortfolio()
       .then((portfolio) => {
         this.portfolio = portfolio;
         this.calculateTotalVal();
+
       })
     })
     }

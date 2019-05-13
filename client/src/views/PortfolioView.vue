@@ -2,7 +2,7 @@
 <div><h1>Portfolio View</h1>
 
   <PortfolioGrid :shrimpy="shrimpy" :portfolio="portfolio"/>
-  <CurrenciesList v-bind:shrimpy_old="shrimpy_old"/>
+  <CurrenciesList v-bind:shrimpy_old="shrimpy_old" :shrimpy_icons="shrimpy_icons"/>
 
 </div>
 
@@ -17,9 +17,7 @@ export default {
     PortfolioGrid,
     CurrenciesList,
   },
-
-  props: ["portfolio", "shrimpy", "shrimpy_old"]
-
+  props: ["portfolio", "shrimpy", "shrimpy_old", "shrimpy_icons"]
 }
 </script>
 

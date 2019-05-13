@@ -9,7 +9,7 @@ import PortfolioService from '@/services/PortfolioService';
 import { eventBus } from '@/main';
 
 export default {
-  props: ['currency'],
+  props: ['currency', 'shrimpy_icons'],
   data() {
     return {
       amount: 0
@@ -26,12 +26,14 @@ export default {
   methods: {
     handleBuy(){
       // event.preventDefault();
-
+      const icon_id = this.shrimpy_icons.get(this.currency.symbol.toLowerCase()).id;
+      const icon_url = `https://assets.shrimpy.io/cryptoicons/png/${icon_id.toString()}.png`
+      // console.log(icon_url);
       const payload = {
         amount: this.amount,
         code: this.currency.symbol,
         name: this.currency.name,
-        url: ""
+        url: icon_url
       };
       PortfolioService.postAsset(payload)
       .then(response => {
