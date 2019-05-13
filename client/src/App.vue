@@ -3,7 +3,9 @@
   <Header/>
   <Greeting :value="totalValue"/>
   <NavBar/>
-  <router-view id="view" :portfolio="portfolio" :totalValue="totalValue" :shrimpy="shrimpy" :cryptoGraphLabels="cryptoGraphLabels" :cryptoGraphValues="cryptoGraphValues"/>
+
+  <router-view id="view" :totalValue="totalValue" :shrimpy="shrimpy" :shrimpy_old="shrimpy_old" :portfolio="portfolio" :cryptoGraphLabels="cryptoGraphLabels" :cryptoGraphValues="cryptoGraphValues"/>
+
  </div>
 </template>
 
@@ -11,14 +13,16 @@
 import Header from '@/components/Header'
 import NavBar from '@/components/NavBar';
 import Greeting from '@/components/Greeting';
-import PortfolioService from '@/services/PortfolioService';
-import { eventBus } from '@/main';
+import * as fetchMethods from "@/FetchMethods";
+import PortfolioService from "@/services/PortfolioService"
+import {eventBus} from '@/main.js'
 
 export default {
   components: { Header, NavBar, Greeting},
   data() {
     return {
-      shrimpy: [],
+      shrimpy_old: [],
+      shrimpy: new Map(),
       poloniex: [],
       portfolio: [],
       totalValue: 0,
@@ -27,63 +31,17 @@ export default {
 
     }
   },
-  methods: {
-    fetchShrimpyTicker: function (){
-      fetch('https://cors-anywhere.herokuapp.com/https://dev-api.shrimpy.io/v1/exchanges/poloniex/ticker')
-      .then(res => res.json())
-      .then(data => {
-        console.log(data);
-        this.shrimpy = data;
-      })
-    },
-    fetchPoloniex: function (){
-      fetch('https://poloniex.com/public?command=returnChartData&currencyPair=USDT_BTC&start=1546300800&end=1546646400&period=14400')
-      .then(res => res.json())
-      .then(data => {
-        this.poloniex = data;
-      })
-    },
-    fetchPortfolio: function () {
-      PortfolioService.getPortfolio()
-      .then(portfolio => this.portfolio = portfolio)
-    },
-    calculateTotalVal: function () {
-      // console.log(this.portfolio);
-      var totalValue = 0;
-      for (var asset of this.portfolio) {
-        // console.log(asset.name);
-        for (var currency of this.shrimpy) {
-          // console.log(currency.symbol);
-          if (currency.symbol === asset.code) {
-            this.cryptoGraphLabels.push(asset.name);
-            this.cryptoGraphValues.push(asset.amount * currency.priceUsd)
-            totalValue += (asset.amount * currency.priceUsd)
-          }
-        }
-      }
-      this.totalValue = totalValue;
-    },
-    fetchAll: function () {
-      fetch('https://cors-anywhere.herokuapp.com/https://dev-api.shrimpy.io/v1/exchanges/poloniex/ticker')
-      .then(res => res.json())
-      .then(data => {
-        // console.log(data);
-        this.shrimpy = data;
-        PortfolioService.getPortfolio()
-        .then((portfolio) => {
-          this.portfolio = portfolio;
-          this.calculateTotalVal();
-        })
-      })
-    },
-  },
+  methods: fetchMethods.default,
   mounted(){
-    // this.fetchShrimpyTicker();
+
     this.fetchPoloniex();
-    // this.fetchPortfolio();
-    // this.calculateTotalVal();
     this.fetchAll();
-    eventBus.$on('refresh-data', this.fetchAll)
+    eventBus.$on('refresh-data', this.fetchAll);
+    eventBus.$on('delete-asset', (assetId) => {
+      PortfolioService.deleteAsset(assetId).then(res => {
+        this.fetchAll();
+      });
+    })
   }
 }
 </script>

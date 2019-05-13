@@ -1,8 +1,11 @@
 <template lang="html">
 <div><h1>Portfolio View</h1>
-  <PortfolioGrid :portfolio="portfolio"/>
-  <CurrenciesList v-bind:shrimpy="shrimpy"/>
+
+  <PortfolioGrid :shrimpy="shrimpy" :portfolio="portfolio"/>
+  <CurrenciesList v-bind:shrimpy_old="shrimpy_old"/>
+
 </div>
+
 </template>
 
 <script>
@@ -14,7 +17,9 @@ export default {
     PortfolioGrid,
     CurrenciesList,
   },
-  props: ['shrimpy', 'portfolio']
+
+  props: ["portfolio", "shrimpy", "shrimpy_old"]
+
 }
 </script>
 
