@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="wishlist-wrapper">
-    <h2> At todays prices you could cash it all in and buy:</h2>
+    <h2> At todays prices you could cash the lot and buy:</h2>
     <div class="wishlist">
 
       <img src="@/../public/images/superyacht.png" alt="">
