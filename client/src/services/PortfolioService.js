@@ -14,9 +14,18 @@ export default {
     })
     .then(res => res.json()) // give me an object that is JSON
   },
+  putAsset(id, payload){
+    return fetch(baseURL + id, {
+      method: 'PUT',
+      body: JSON.stringify(payload),
+      headers: { 'Content-Type': 'application/json'}
+    })
+    .then(res => res.json())
+  },
   deleteAsset(id){
     return fetch(baseURL + id, {
       method: 'DELETE'
     })
   },
+
 }
