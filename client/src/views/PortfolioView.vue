@@ -1,7 +1,7 @@
 <template lang="html">
 <div><h1>Portfolio View</h1>
 
-  <PortfolioGrid :shrimpy="shrimpy" :portfolio="portfolio" :poloniex="poloniex"/>
+  <PortfolioGrid v-if="portfolio" :shrimpy="shrimpy" :portfolio="portfolio" :poloniex="poloniex"/>
   <CurrenciesList v-bind:shrimpy_old="shrimpy_old"/>
 
 </div>
