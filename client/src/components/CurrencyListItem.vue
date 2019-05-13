@@ -1,5 +1,5 @@
 <template lang="html">
-<div class="currency-list-item">
+<div v-if="shouldDisplayCurrency" class="currency-list-item">
   {{ currency.name }} {{ currency.priceUsd | toCurrency }} <input type="number" name="amount" min="1" v-model="amount" placeholder="enter amount"> <button v-on:click="handleBuy()">BUY</button>
 </div>
 </template>
@@ -9,7 +9,7 @@ import PortfolioService from '@/services/PortfolioService';
 import { eventBus } from '@/main';
 
 export default {
-  props: ['currency', 'shrimpy_icons'],
+  props: ['currency', 'shrimpy_icons', 'portfolio'],
   data() {
     return {
       amount: 0
@@ -39,6 +39,17 @@ export default {
       .then(response => {
         eventBus.$emit('refresh-data');
       })
+    }
+  },
+  computed: {
+    shouldDisplayCurrency: function () {
+      let contains = false;
+      for (var asset of this.portfolio) {
+        if (this.currency.symbol === asset.code) {
+          contains = true;
+        };
+      };
+      return !contains
     }
   }
 }

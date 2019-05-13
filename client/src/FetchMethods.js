@@ -10,6 +10,10 @@ export default {
       this.shrimpy = data;
     })
   },
+  fetchPortfolio: function () {
+    PortfolioService.getPortfolio()
+    .then(portfolio => this.portfolio = portfolio)
+  },
   fetchPoloniex: function (){
     fetch('https://poloniex.com/public?command=returnChartData&currencyPair=USDT_BTC&start=1546300800&end=1546646400&period=14400')
     .then(res => res.json())
@@ -17,10 +21,7 @@ export default {
       this.poloniex = data;
     })
   },
-  fetchPortfolio: function () {
-    PortfolioService.getPortfolio()
-    .then(portfolio => this.portfolio = portfolio)
-  },
+
   calculateTotalVal: function () {
     var totalValue = 0;
     for (var asset of this.portfolio) {
