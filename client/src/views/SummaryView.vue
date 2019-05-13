@@ -1,8 +1,8 @@
 <template lang="html">
   <div>
 <h1>Summary View</h1>
-<CryptoGraph/>
-<Wishlist/>
+<CryptoGraph :cryptoGraphLabels="cryptoGraphLabels" :cryptoGraphValues="cryptoGraphValues"/>
+<Wishlist :totalValue="totalValue"/>
 </div>
 </template>
 
@@ -16,6 +16,11 @@ export default {
     Wishlist
   },
 
+  props: [
+    "cryptoGraphLabels",
+    "cryptoGraphValues",
+    "totalValue"
+  ]
 }
 </script>
 

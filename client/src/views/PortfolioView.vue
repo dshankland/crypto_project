@@ -1,7 +1,7 @@
 <template lang="html">
 <div><h1>Portfolio View</h1>
   <PortfolioGrid :shrimpy="shrimpy" :portfolio="portfolio"/>
-  <CurrenciesList/>
+  <CurrenciesList v-bind:shrimpy="shrimpy"/>
 </div>
 
 </template>
