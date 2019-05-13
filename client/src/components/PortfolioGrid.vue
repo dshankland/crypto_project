@@ -4,7 +4,12 @@
 
     <!-- <button class="newAsset" v-on:click="postAsset(payload)">Add new</button> -->
     <div class="portfolio" v-for="asset in portfolio">
+      <div id="container">
+
+      </div>
+
       <div id="asset-container">
+
         <h2>{{asset.name}} ({{asset.code}})</h2>
         <h3>{{asset.amount}}</h3>
         <h3>{{getPrice(asset.code)}}</h3>
@@ -19,7 +24,7 @@
 import {eventBus} from '@/main.js'
 import PortfolioService from '@/services/PortfolioService.js'
 export default {
-  props: ["portfolio", "shrimpy"],
+  props: ["portfolio", "shrimpy", "poloniex"],
   data(){
     return {
       assets: [],
@@ -37,7 +42,26 @@ export default {
 
   },
   mounted(){
-
+    Highcharts.chart('container', {
+      chart: {
+          type: 'line'
+      },
+      title: {
+          text: 'Your asset values'
+      },
+      xAxis: {
+          categories: []
+      },
+      yAxis: {
+          title: {
+              text: 'asset value in USD'
+          }
+      },
+      series: [{
+          name: 'Currency',
+          data:  [10, 12, 35, 1, 5]
+      }]
+  });
   }
 }
 
