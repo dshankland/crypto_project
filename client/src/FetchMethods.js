@@ -44,7 +44,7 @@ export default {
       fetch('https://cors-anywhere.herokuapp.com/https://dev-api.shrimpy.io/v1/exchanges/poloniex/assets')
       .then(res => res.json())
       .then(data => {
-        this.shrimpy_icons = new Map(data.map(i => [i.symbol.toLowerCase(), i]));
+        this.shrimpy_icons = new Map(data.map(i => [i.tradingSymbol.toLowerCase(), i]));
 
       })
       PortfolioService.getPortfolio()
