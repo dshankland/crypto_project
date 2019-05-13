@@ -3,7 +3,7 @@
   <Header/>
   <Greeting :value="totalValue"/>
   <NavBar/>
-  <router-view id="view" :totalValue="totalValue" :shrimpy="shrimpy" :portfolio="portfolio" :cryptoGraphLabels="cryptoGraphLabels" :cryptoGraphValues="cryptoGraphValues"/>
+  <router-view id="view" :totalValue="totalValue" :shrimpy="shrimpy" :shrimpy_old="shrimpy_old" :portfolio="portfolio" :cryptoGraphLabels="cryptoGraphLabels" :cryptoGraphValues="cryptoGraphValues"/>
  </div>
 </template>
 
@@ -19,6 +19,7 @@ export default {
   components: { Header, NavBar, Greeting},
   data() {
     return {
+      shrimpy_old: [],
       shrimpy: new Map(),
       poloniex: [],
       portfolio: [],
@@ -30,7 +31,7 @@ export default {
   },
   methods: fetchMethods.default,
   mounted(){
-  
+
     this.fetchPoloniex();
     this.fetchAll();
     eventBus.$on('refresh-data', this.fetchAll);
