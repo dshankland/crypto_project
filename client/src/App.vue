@@ -28,7 +28,8 @@ export default {
       portfolio: [],
       totalValue: 0,
       cryptoGraphLabels: [],
-      cryptoGraphValues: []
+      cryptoGraphValues: [],
+      cryptoGraphCodes: []
 
     }
   },

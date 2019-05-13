@@ -15,10 +15,10 @@ db.portfolio.insertMany([
     url: 'https://assets.shrimpy.io/cryptoicons/png/38.png'
   },
   {
-    code: 'DGB',
-    name: 'DigiByte',
+    code: 'GNT',
+    name: 'Golem',
     amount: 8,
-    url: 'https://assets.shrimpy.io/cryptoicons/png/122.png'
+    url: 'https://assets.shrimpy.io/cryptoicons/png/183.png'
   },
   {
     code: 'ETH',
