@@ -29,7 +29,7 @@ export default {
 <style lang="css" scoped>
 
 .currencies-list {
-  max-height: 300px;
+  /* max-height: 300px; */
   overflow: auto;
 }
 
@@ -53,4 +53,9 @@ table thead th {
   justify-content: space-around;
 }
 
+table  tbody{
+  display:block;
+  height:300px;
+  overflow:auto;
+}
 </style>
