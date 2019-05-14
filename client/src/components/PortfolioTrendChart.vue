@@ -6,6 +6,8 @@
 
 <script>
 export default {
+  props: ["cryptoGraphTotalValues"],
+
   mounted(){
     Highcharts.chart('portfolio-trend', {
       chart: {
@@ -24,7 +26,7 @@ export default {
       },
       series: [{
           name: 'Currency',
-          data:  [30000, 25000, 24000, 27000, 33000, 48000]
+          data:  this.cryptoGraphTotalValues
       }]
   });
 }

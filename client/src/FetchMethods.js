@@ -26,6 +26,8 @@ export default {
     .then((data) => {
       this.poloniex = data;
       this.poloniex_map = new Map(data.map((currency, index) => [this.portfolio[index]._id, currency.map(current => current.open)]));
+      this.calculateHistoricalTotalVal();
+
     })
   },
 
@@ -47,6 +49,21 @@ export default {
     }
     this.totalValue = totalValue;
   },
+
+  calculateHistoricalTotalVal: function () {
+    this.cryptoGraphTotalLabels = [];
+    this.cryptoGraphTotalValues = [];
+    for (let i = 0; i < 9; i++) {
+      var index = 0;
+      var totalDailyValue = 0;
+      for (var asset of this.portfolio) {
+        totalDailyValue += (asset.amount * this.poloniex[index][i].open)
+        index += 1;
+      }
+      this.cryptoGraphTotalValues.push(totalDailyValue);
+    }
+  },
+
   fetchAll: function () {
 
     fetch('https://cors-anywhere.herokuapp.com/https://dev-api.shrimpy.io/v1/exchanges/poloniex/ticker')
@@ -67,6 +84,7 @@ export default {
         this.portfolio = portfolio;
         this.calculateTotalVal();
         this.fetchPoloniex();
+        // this.calculateHistoricalTotalVal();
       })
 
 
