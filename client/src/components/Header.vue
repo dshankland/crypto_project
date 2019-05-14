@@ -12,6 +12,12 @@ export default {
 </script>
 
 <style lang="css" scoped>
+
+header  {
+  font-family: 'Medieval Sharp', cursive;
+  font-size: 80px;
+}
+
 /* .header {
 
   position: absolute;
@@ -23,7 +29,7 @@ span {
   left: 120px;
 }
 
-.header h1 {
+header  {
   font-family: 'UnifrakturCook', cursive;
   font-size: 80px;
   margin: 0;
@@ -38,7 +44,7 @@ span {
 
 .header img {
   height: 160px;
-  
+
 }
 
 </style>
