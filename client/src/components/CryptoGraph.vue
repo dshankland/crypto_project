@@ -16,6 +16,8 @@ export default {
     Highcharts.chart('container', {
       chart: {
           type: 'column'
+
+
       },
       title: {
           text: 'Your asset values'
@@ -25,7 +27,7 @@ export default {
       },
       yAxis: {
           title: {
-              text: 'asset value in USD'
+              text: 'US dollars'
           }
       },
       series: [{

@@ -39,8 +39,16 @@ button:hover {
   background-color: white;
 }
 
+button:active {
+  border: 1px solid #0c3f59;
+  background-color: #4789a3;
+}
 
-
+button:focus {
+    outline: none;
+    border: 1px solid #0c3f59;
+    background-color: #4789a3;
+}
 
 #nav-bar {
 
