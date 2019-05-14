@@ -93,6 +93,8 @@ export default {
       });
     }
   },
+  // added mounted section to trigger refresh-data, which in turn should trigger
+  // the watch for poloniex_map
   mounted() {
     eventBus.$emit('refresh-data')
   }

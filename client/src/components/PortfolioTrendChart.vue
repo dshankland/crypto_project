@@ -30,6 +30,7 @@ export default {
       }]
     });
   },
+  // added watch for cryptoGraphTotalValues to trigger redraw of chart
   watch: {
     cryptoGraphTotalValues: function(newValue, oldValue){
       Highcharts.chart('portfolio-trend', {
