@@ -4,7 +4,7 @@
   <Greeting :value="totalValue"/>
   <NavBar/>
 
-  <router-view id="view" :poloniex="poloniex" :totalValue="totalValue" :shrimpy="shrimpy" :shrimpy_old="shrimpy_old" :shrimpy_icons="shrimpy_icons" :portfolio="portfolio" :cryptoGraphLabels="cryptoGraphLabels" :cryptoGraphValues="cryptoGraphValues"/>
+  <router-view id="view" :poloniex="poloniex" :cryptoGraphTotalValues="cryptoGraphTotalValues" :totalValue="totalValue" :shrimpy="shrimpy" :shrimpy_old="shrimpy_old" :shrimpy_icons="shrimpy_icons" :portfolio="portfolio" :cryptoGraphLabels="cryptoGraphLabels" :cryptoGraphValues="cryptoGraphValues"/>
 
  </div>
 </template>
@@ -30,7 +30,9 @@ export default {
       cryptoGraphLabels: [],
       cryptoGraphValues: [],
       cryptoGraphCodes: [],
-      poloniex_map: null
+      poloniex_map: null,
+      cryptoGraphTotalLabels: [],
+      cryptoGraphTotalValues: []
     }
   },
   methods: fetchMethods.default,
