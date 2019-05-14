@@ -1,8 +1,9 @@
 <template lang="html">
  <div id="main">
   <Header/>
-  <Greeting :value="totalValue"/>
   <NavBar/>
+  <Greeting :value="totalValue"/>
+
 
   <router-view id="view" :poloniex="poloniex" :cryptoGraphTotalValues="cryptoGraphTotalValues" :totalValue="totalValue" :shrimpy="shrimpy"
   :shrimpy_old="shrimpy_old" :shrimpy_icons="shrimpy_icons" :portfolio="portfolio"
@@ -56,7 +57,6 @@ export default {
 <style lang="css" scoped>
 /* @import url('https://fonts.googleapis.com/css?family=Gugi'); */
 
-#view {
-    }
+
 
 </style>
