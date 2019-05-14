@@ -62,11 +62,15 @@ export default {
 
   },
   watch: {
-    poloniex_map: function()  {
+    poloniex_map: function(newValue, oldValue)  {
       // const poloniexArray = this.poloniex_map.entries(this.poloniex_map)
       // console.log('poloarray', poloniexArray);
-      poloniex_map.forEach(function(asset) {
-        Highcharts.chart(asset.key, {
+      newValue.forEach(function(value, key, map) {
+        // console.log("newValue ",newValue);
+        // console.log("key", key);
+        // console.log("value", value);
+        // console.log("map", map);
+        Highcharts.chart(key, {
           chart: {
               type: 'line'
           },
@@ -83,7 +87,7 @@ export default {
           },
           series: [{
               name: '',
-              data:  asset.value
+              data:  value
           }]
       })
 
