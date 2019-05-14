@@ -52,7 +52,7 @@ export default {
       const asset = {
         amount: value
       }
-      
+
       PortfolioService.putAsset(id, asset)
       .then(res => {
         console.log('bus', res);
@@ -61,30 +61,35 @@ export default {
     }
 
   },
-  updated(){
-    this.portfolio.forEach(function(asset) {
-      Highcharts.chart(asset._id, {
-        chart: {
-            type: 'line'
-        },
-        title: {
-            text: 'Your asset values'
-        },
-        xAxis: {
-            categories: []
-        },
-        yAxis: {
-            title: {
-                text: "US dollars"
-            }
-        },
-        series: [{
-            name: asset.name,
-            data:  [10, 12, 35, 1, 5]
-        }]
-    })
+  watch: {
+    poloniex_map: function()  {
+      // const poloniexArray = this.poloniex_map.entries(this.poloniex_map)
+      // console.log('poloarray', poloniexArray);
+      poloniex_map.forEach(function(asset) {
+        Highcharts.chart(asset.key, {
+          chart: {
+              type: 'line'
+          },
+          title: {
+              text: 'Your asset values'
+          },
+          xAxis: {
+              categories: []
+          },
+          yAxis: {
+              title: {
+                  text: "US dollars"
+              }
+          },
+          series: [{
+              name: '',
+              data:  asset.value
+          }]
+      })
 
-  });
+    });
+    }
+
 
 }
 }

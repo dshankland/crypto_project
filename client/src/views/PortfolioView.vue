@@ -1,7 +1,7 @@
 <template lang="html">
 <div><h1>Portfolio View</h1>
   <PortfolioTrendChart/>
-  <PortfolioGrid v-if="portfolio" :shrimpy="shrimpy" :portfolio="portfolio" :poloniex="poloniex"/>
+  <PortfolioGrid v-if="portfolio" :shrimpy="shrimpy" :portfolio="portfolio" :poloniex="poloniex" :poloniex_map="poloniex_map"/>
   <CurrenciesList v-bind:shrimpy_old="shrimpy_old" :shrimpy_icons="shrimpy_icons" :portfolio="portfolio"/>
 
 </div>
@@ -20,7 +20,7 @@ export default {
     PortfolioTrendChart
   },
 
-  props: ["portfolio", "shrimpy", "shrimpy_old", "shrimpy_icons", "poloniex"]
+  props: ["portfolio", "shrimpy", "shrimpy_old", "shrimpy_icons", "poloniex", "poloniex_map"]
 
 
 }

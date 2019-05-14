@@ -4,7 +4,10 @@
   <Greeting :value="totalValue"/>
   <NavBar/>
 
-  <router-view id="view" :poloniex="poloniex" :totalValue="totalValue" :shrimpy="shrimpy" :shrimpy_old="shrimpy_old" :shrimpy_icons="shrimpy_icons" :portfolio="portfolio" :cryptoGraphLabels="cryptoGraphLabels" :cryptoGraphValues="cryptoGraphValues"/>
+  <router-view id="view" :poloniex="poloniex" :totalValue="totalValue" :shrimpy="shrimpy"
+  :shrimpy_old="shrimpy_old" :shrimpy_icons="shrimpy_icons" :portfolio="portfolio"
+  :cryptoGraphLabels="cryptoGraphLabels" :cryptoGraphValues="cryptoGraphValues"
+  :poloniex_map="poloniex_map"/>
 
  </div>
 </template>
