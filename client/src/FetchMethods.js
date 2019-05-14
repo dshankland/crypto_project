@@ -53,7 +53,7 @@ export default {
   calculateHistoricalTotalVal: function () {
     this.cryptoGraphTotalLabels = [];
     this.cryptoGraphTotalValues = [];
-    for (let i = 0; i < 9; i++) {
+    for (let i = 0; i < 8; i++) {
       var index = 0;
       var totalDailyValue = 0;
       for (var asset of this.portfolio) {
