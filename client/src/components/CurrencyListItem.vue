@@ -68,14 +68,11 @@ export default {
 
 <style lang="css" scoped>
 
-table td {
-  width: 750px;
+td {
+  width: 160px;
   text-align: left;
   padding: 8px;
   border-right: 2px solid #7D82A8;
-}
-table tbody tr:nth-child(2n) td {
-  background: #D4D8F9;
 }
 
 </style>
