@@ -72,30 +72,30 @@ export default {
         // console.log("map", map);
         Highcharts.chart(key, {
           chart: {
-              type: 'line'
+            type: 'line'
           },
           title: {
-              text: 'Your asset values'
+            text: 'Your asset values'
           },
           xAxis: {
-              categories: []
+            categories: []
           },
           yAxis: {
-              title: {
-                  text: "US dollars"
-              }
+            title: {
+              text: "US dollars"
+            }
           },
           series: [{
-              name: '',
-              data:  value
+            name: '',
+            data:  value
           }]
-      })
-
-    });
+        })
+      });
     }
-
-
-}
+  },
+  mounted() {
+    eventBus.$emit('refresh-data')
+  }
 }
 
 </script>

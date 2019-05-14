@@ -11,25 +11,49 @@ export default {
   mounted(){
     Highcharts.chart('portfolio-trend', {
       chart: {
-          type: 'line'
+        type: 'line'
       },
       title: {
-          text: 'Your portfolio performance'
+        text: 'Your portfolio performance'
       },
       xAxis: {
-          categories: []
+        categories: []
       },
       yAxis: {
-          title: {
-              text: 'value in USD'
-          }
+        title: {
+          text: 'value in USD'
+        }
       },
       series: [{
-          name: 'Currency',
-          data:  this.cryptoGraphTotalValues
+        name: 'Currency',
+        data:  this.cryptoGraphTotalValues
       }]
-  });
-}
+    });
+  },
+  watch: {
+    cryptoGraphTotalValues: function(newValue, oldValue){
+      Highcharts.chart('portfolio-trend', {
+        chart: {
+          type: 'line'
+        },
+        title: {
+          text: 'Your portfolio performance'
+        },
+        xAxis: {
+          categories: []
+        },
+        yAxis: {
+          title: {
+            text: 'value in USD'
+          }
+        },
+        series: [{
+          name: 'Currency',
+          data:  newValue
+        }]
+      });
+    }
+  }
 }
 </script>
 
