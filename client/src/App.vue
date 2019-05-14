@@ -30,7 +30,7 @@ export default {
       cryptoGraphLabels: [],
       cryptoGraphValues: [],
       cryptoGraphCodes: [],
-      poloniex_map: new Map()
+      poloniex_map: null
     }
   },
   methods: fetchMethods.default,

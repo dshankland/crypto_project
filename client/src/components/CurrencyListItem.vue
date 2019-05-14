@@ -1,7 +1,18 @@
 <template lang="html">
-<div v-if="shouldDisplayCurrency" class="currency-list-item">
-  {{ currency.name }} {{ currency.priceUsd | toCurrency }} <input type="number" name="amount" min="1" v-model="amount" placeholder="enter amount"> <button v-on:click="handleBuy()">BUY</button>
-</div>
+  <div v-if="shouldDisplayCurrency" class="currency-list-item">
+    <td>
+      {{ currency.name }}
+    </td>
+    <td>
+      {{ currency.priceUsd | toCurrency }}
+    </td>
+    <td>
+      <input type="number" name="amount" min="1" v-model="amount" placeholder="enter amount">
+    </td>
+    <td>
+      <button v-on:click="handleBuy()">BUY</button>
+    </td>
+  </div>
 </template>
 
 <script>
@@ -56,4 +67,15 @@ export default {
 </script>
 
 <style lang="css" scoped>
+
+table td {
+  width: 750px;
+  text-align: left;
+  padding: 8px;
+  border-right: 2px solid #7D82A8;
+}
+table tbody tr:nth-child(2n) td {
+  background: #D4D8F9;
+}
+
 </style>

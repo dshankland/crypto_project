@@ -23,7 +23,10 @@ export default {
     })
 
     Promise.all(promises)
-    .then(data => this.poloniex = data)
+    .then((data) => {
+      this.poloniex = data;
+      this.poloniex_map = new Map(data.map((currency, index) => [this.portfolio[index]._id, currency.map(current => current.open)]));
+    })
   },
 
 
@@ -63,8 +66,7 @@ export default {
         console.log('fetching all', portfolio);
         this.portfolio = portfolio;
         this.calculateTotalVal();
-
-      this.fetchPoloniex();
+        this.fetchPoloniex();
       })
 
 
