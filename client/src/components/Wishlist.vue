@@ -68,6 +68,7 @@ h3 {
 h2 {
   margin-left: auto;
   margin-bottom: 10px;
+  margin-top: 30px;
 }
 
 </style>
