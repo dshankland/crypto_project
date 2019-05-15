@@ -1,22 +1,21 @@
 <template lang="html">
   <div id="portfolio-list">
-
+    <link href="https://fonts.googleapis.com/css?family=Graduate|Merriweather" rel="stylesheet">
 
     <!-- <button class="newAsset" v-on:click="postAsset(payload)">Add new</button> -->
     <div class="portfolio" v-for="asset in portfolio">
+
 
 
       <div id="asset-container">
         <div :id="asset._id">
 
         </div>
-
-        <h2>{{asset.name}} ({{asset.code}})</h2>
-        <h3>{{asset.amount}}</h3>
-        <input type="number" name="amount" :value="asset.amount" :id="asset._id" v-on:change="increaseAsset"/>
-        <h3>{{getPrice(asset.code)}}</h3>
         <img class="logo" :src="asset.url"> </img>
-        <button v-on:click="deleteAsset(asset)">Remove Asset</button>
+        <h2 id="assetName">{{asset.name}}</h2><h4 id="assetCode">({{asset.code}})</h4>
+        <input type="number" name="amount" :value="asset.amount" :id="asset._id" v-on:change="increaseAsset"/>
+        <h3>{{getPrice(asset.code) | toCurrency}}</h3>
+        <button id="RmvBtn" v-on:click="deleteAsset(asset)">Remove</button>
       </div>
     </div>
   </div>
@@ -31,10 +30,12 @@ export default {
   data(){
     return {
       assets: [],
-
     };
-
   },
+  filters: {
+    toCurrency: function (value) {
+      return new Intl.NumberFormat('en-US',  { style: 'currency', currency: 'USD' }).format(value);
+  }},
   methods: {
     deleteAsset: function(asset) {
       eventBus.$emit('delete-asset', asset._id)
