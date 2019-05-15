@@ -72,30 +72,33 @@ export default {
         // console.log("map", map);
         Highcharts.chart(key, {
           chart: {
-              type: 'line'
+            type: 'line'
           },
           title: {
-              text: 'Your asset values'
+            text: 'Your asset values'
           },
           xAxis: {
-              categories: []
+            categories: [-7,-6,-5,-4,-3,-2,-1,0],
+            title: {text: "days"}
           },
           yAxis: {
-              title: {
-                  text: "US dollars"
-              }
+            title: {
+              text: "US dollars"
+            }
           },
           series: [{
-              name: '',
-              data:  value
+            name: '',
+            data:  value
           }]
-      })
-
-    });
+        })
+      });
     }
-
-
-}
+  },
+  // added mounted section to trigger refresh-data, which in turn should trigger
+  // the watch for poloniex_map
+  mounted() {
+    eventBus.$emit('refresh-data')
+  }
 }
 
 </script>
