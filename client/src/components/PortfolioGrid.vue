@@ -5,8 +5,6 @@
     <!-- <button class="newAsset" v-on:click="postAsset(payload)">Add new</button> -->
     <div class="portfolio" v-for="asset in portfolio">
 
-
-
       <div id="asset-container">
         <div :id="asset._id">
 
