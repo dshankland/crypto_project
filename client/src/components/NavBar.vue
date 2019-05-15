@@ -17,7 +17,8 @@ export default {
 <style lang="css" scoped>
 
 .nav {
-  margin-left: 20px;
+  margin-left: 0px;
+  font-family: 'Questrial', sans-serif;
 }
 
 
