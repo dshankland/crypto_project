@@ -33,34 +33,41 @@ export default {
 <style lang="css" scoped>
 
 .wishlist-wrapper {
-  max-width: 650px;
+  max-width: 95%;
   max-height: 170px;
-}
-
-strong {
-
-  font-size: 29px;
-}
-
-
-h3 {
-
-  margin-right: 25px;
-  margin-left: 3px;
+  margin: auto;
 }
 
 .wishlist img {
   height: 60px;
+  margin-bottom: 5px;
+  margin-top: 5px;
   display: flex;
+  background-color: white;
 }
 
 .wishlist {
   display: flex;
-  max-height: 120px;
-  max-width:650px;
+  background-color: white;
+  max-height: 130px;
+  max-width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 20px;
+  padding-right: 0;
   overflow-x: auto;
   overflow-y: hidden;
   white-space: nowrap;
+}
+
+h3 {
+  margin-top: 20px;
+  margin-right: 20px;
+}
+
+h2 {
+  margin-left: auto;
+  margin-bottom: 10px;
 }
 
 </style>

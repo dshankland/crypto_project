@@ -1,4 +1,24 @@
+body {
+  background-color: #e5edf9;
+  max-width: 800px;
+  margin: auto;
+}
+
 #main {
- background-color: lightgrey;
+ background-color: #e5edf9;
  font-family: 'Arial', sans-serif;
+}
+
+#header  {
+  font-family: 'Medieval Sharp', cursive;
+  font-size: 50px;
+}
+#container {
+  max-width: 95%;
+  margin: auto;
+}
+
+#portfolio-trend {
+  max-width: 95%;
+  margin: auto;
 }

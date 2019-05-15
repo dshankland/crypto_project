@@ -13,38 +13,36 @@ export default {
 
 <style lang="css" scoped>
 
-header  {
+.header  {
   font-family: 'Medieval Sharp', cursive;
-  font-size: 80px;
-}
-
-/* .header {
-
-  position: absolute;
-}
-
-span {
-  display: inline;
   position: relative;
-  left: 120px;
+  background-color: #ADD8E6;
+  font-size: 45px;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 180px;
 }
 
-header  {
-  font-family: 'UnifrakturCook', cursive;
-  font-size: 80px;
+h1 {
+  position: absolute;
+  top: 0px;
+  left: 150px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-top: 0px;
+}
+
+h3 {
+  position: absolute;
+  font-size: 20px;
   margin: 0;
-
-
+  left: 305px;
+  top: 115px;
 }
-
-.header h3 {
-  font-size: 30px;
-
-} */
 
 .header img {
-  height: 160px;
-
+  height: 180px;
 }
 
 </style>
