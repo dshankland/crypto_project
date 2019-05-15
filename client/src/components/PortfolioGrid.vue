@@ -112,10 +112,15 @@ export default {
   /* flex-direction: column;
   flex-wrap: wrap; */
   color: black;
+  font-family: 'Merriweather', serif;
 }
 
 #asset-container{
-  background-color: lightblue;
+  background-color: #5680E9;
+  position: relative;
+  font-family: 'Merriweather', serif;
+  border-radius: 15px;
+  padding-bottom: 30px;
 }
 .portfolio{
   background-color: white;
@@ -124,18 +129,55 @@ export default {
   margin: 10px;
   border-radius: 20px;
   text-align: center;
+  font-family: 'Merriweather', serif;
+
 }
 
-.newAsset{
+/* .newAsset{
   display: block;
   width: 15em;
   height: 2.5em;
   background-color: grey;
   color: white;
   border-radius: 20em;
+  font-family: 'Merriweather', serif;
+} */
+
+input[type="number"]{
+    font-size:20px;
+    border: 2px lightblue;
+    border-radius: 4px;
+    background-color: darkblue;
+    color: white;
+    text-align: center;
+    font-family: 'Merriweather', serif;
+    height: 45px;
+    width: 45px;
 }
 
-#logo{
-
+#RmvBtn {
+  font-family: 'Merriweather', serif;
+  background-color: #84CEEB;
+  border-color: darkblue;
+  color: black;
+  text-align: center;
+  height: 15px;
+  width: 25%;
+  border-radius: 15px;
+  padding-bottom: 20px;
+  font-size: 12px;
+  display: inline-block;
 }
+
+.logo{
+  padding-top: 20px
+}
+
+/* #assetName {
+  display: inline-block;
+} */
+
+
+
+
 </style>
