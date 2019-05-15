@@ -14,6 +14,7 @@
         <input type="number" name="amount" :value="asset.amount" :id="asset._id" v-on:change="increaseAsset"/>
         <h3>{{getPrice(asset.code) | toCurrency}}</h3>
         <button id="RmvBtn" v-on:click="deleteAsset(asset)">Remove</button>
+
       </div>
     </div>
   </div>
@@ -71,10 +72,13 @@ export default {
         // console.log("map", map);
         Highcharts.chart(key, {
           chart: {
-            type: 'line'
+            backgroundColor: '#C1C8E4',
+            type: 'line',
+            borderColor: '#000000',
           },
           title: {
-            text: 'Your asset values'
+            text: 'Your asset values',
+
           },
           xAxis: {
             categories: [-7,-6,-5,-4,-3,-2,-1,0],
@@ -88,7 +92,8 @@ export default {
           series: [{
             name: '',
             data:  value
-          }]
+          }],
+
         })
       });
     }
@@ -149,8 +154,10 @@ input[type="number"]{
     color: white;
     text-align: center;
     font-family: 'Merriweather', serif;
-    height: 45px;
-    width: 45px;
+    /* height: 45px; */
+    /* width: 45px; */
+    max-width: 60%;
+    min-width: 10%;
 }
 
 #RmvBtn {
@@ -174,6 +181,8 @@ input[type="number"]{
 /* #assetName {
   display: inline-block;
 } */
+
+
 
 
 
