@@ -1,22 +1,19 @@
 <template lang="html">
   <div id="portfolio-list">
-
+    <link href="https://fonts.googleapis.com/css?family=Graduate|Merriweather" rel="stylesheet">
 
     <!-- <button class="newAsset" v-on:click="postAsset(payload)">Add new</button> -->
     <div class="portfolio" v-for="asset in portfolio">
-
 
       <div id="asset-container">
         <div :id="asset._id">
 
         </div>
-
-        <h2>{{asset.name}} ({{asset.code}})</h2>
-        <h3>{{asset.amount}}</h3>
-        <input type="number" name="amount" :value="asset.amount" :id="asset._id" v-on:change="increaseAsset"/>
-        <h3>{{getPrice(asset.code)}}</h3>
         <img class="logo" :src="asset.url"> </img>
-        <button v-on:click="deleteAsset(asset)">Remove Asset</button>
+        <h2 id="assetName">{{asset.name}}</h2><h4 id="assetCode">({{asset.code}})</h4>
+        <input type="number" name="amount" :value="asset.amount" :id="asset._id" v-on:change="increaseAsset"/>
+        <h3>{{getPrice(asset.code) | toCurrency}}</h3>
+        <button id="RmvBtn" v-on:click="deleteAsset(asset)">Remove</button>
       </div>
     </div>
   </div>
@@ -31,10 +28,12 @@ export default {
   data(){
     return {
       assets: [],
-
     };
-
   },
+  filters: {
+    toCurrency: function (value) {
+      return new Intl.NumberFormat('en-US',  { style: 'currency', currency: 'USD' }).format(value);
+  }},
   methods: {
     deleteAsset: function(asset) {
       eventBus.$emit('delete-asset', asset._id)
@@ -111,10 +110,15 @@ export default {
   /* flex-direction: column;
   flex-wrap: wrap; */
   color: black;
+  font-family: 'Merriweather', serif;
 }
 
 #asset-container{
-  background-color: lightblue;
+  background-color: #5680E9;
+  position: relative;
+  font-family: 'Merriweather', serif;
+  border-radius: 15px;
+  padding-bottom: 30px;
 }
 .portfolio{
   background-color: white;
@@ -123,18 +127,55 @@ export default {
   margin: 10px;
   border-radius: 20px;
   text-align: center;
+  font-family: 'Merriweather', serif;
+
 }
 
-.newAsset{
+/* .newAsset{
   display: block;
   width: 15em;
   height: 2.5em;
   background-color: grey;
   color: white;
   border-radius: 20em;
+  font-family: 'Merriweather', serif;
+} */
+
+input[type="number"]{
+    font-size:20px;
+    border: 2px lightblue;
+    border-radius: 4px;
+    background-color: darkblue;
+    color: white;
+    text-align: center;
+    font-family: 'Merriweather', serif;
+    height: 45px;
+    width: 45px;
 }
 
-#logo{
-
+#RmvBtn {
+  font-family: 'Merriweather', serif;
+  background-color: #84CEEB;
+  border-color: darkblue;
+  color: black;
+  text-align: center;
+  height: 15px;
+  width: 25%;
+  border-radius: 15px;
+  padding-bottom: 20px;
+  font-size: 12px;
+  display: inline-block;
 }
+
+.logo{
+  padding-top: 20px
+}
+
+/* #assetName {
+  display: inline-block;
+} */
+
+
+
+
 </style>
