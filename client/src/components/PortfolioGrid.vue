@@ -10,11 +10,11 @@
 
         </div>
         <img class="logo" :src="asset.url"> </img>
-        <h2 id="assetName">{{asset.name}}</h2><h4 id="assetCode">({{asset.code}})</h4>
+        <h2 id="assetName">{{asset.name}} ({{asset.code}})</h2>
+        <h4>Price USD: {{getPrice(asset.code) | toCurrency}}</h4>
         <label class="label" for="id">You are currently holding</label>
         <input id="USD" type="number" name="amount" :value="asset.amount" :id="asset._id" v-on:change="increaseAsset"/>
-        <h4>Price USD: {{getPrice(asset.code) | toCurrency}}</h4>
-        <button id="RmvBtn" v-on:click="deleteAsset(asset)">Remove</button>
+        <br><button id="RmvBtn" v-on:click="deleteAsset(asset)">Remove</button></br>
 
       </div>
     </div>
@@ -125,7 +125,7 @@ export default {
   position: relative;
   font-family: 'Merriweather', serif;
   border-radius: 15px;
-  padding-bottom: 30px;
+  padding-bottom: 20px;
 
 }
 .portfolio{
@@ -176,6 +176,7 @@ input[type="number"]{
   padding-bottom: 20px;
   font-size: 12px;
   display: inline-block;
+  margin-top: 15px;
 }
 
 .logo{
