@@ -11,8 +11,9 @@
         </div>
         <img class="logo" :src="asset.url"> </img>
         <h2 id="assetName">{{asset.name}}</h2><h4 id="assetCode">({{asset.code}})</h4>
-        <input type="number" name="amount" :value="asset.amount" :id="asset._id" v-on:change="increaseAsset"/>
-        <h3>{{getPrice(asset.code) | toCurrency}}</h3>
+        <label class="label" for="id">You are currently holding</label>
+        <input id="USD" type="number" name="amount" :value="asset.amount" :id="asset._id" v-on:change="increaseAsset"/>
+        <h4>Price USD: {{getPrice(asset.code) | toCurrency}}</h4>
         <button id="RmvBtn" v-on:click="deleteAsset(asset)">Remove</button>
 
       </div>
@@ -53,10 +54,11 @@ export default {
         amount: value
       }
 
-      PortfolioService.putAsset(id, asset)
+      PortfolioService.putAsset(id, asset) // need id to tell it which object to update, asset is the full object that was getting passed in
+      // of which the value (in the input box) was setting the amount key in asset object. The putAsset then updates the full asset object
       .then(res => {
         console.log('bus', res);
-        eventBus.$emit('refresh-data')
+        eventBus.$emit('refresh-data') // sends data back to portfolioView .. refreshing page, asset will be updated
       })
     }
 
@@ -159,6 +161,7 @@ input[type="number"]{
     /* width: 45px; */
     max-width: 60%;
     min-width: 10%;
+    margin-top: 5px;
 }
 
 #RmvBtn {
@@ -177,6 +180,12 @@ input[type="number"]{
 
 .logo{
   padding-top: 20px
+}
+
+.label {
+  font-size: 12px;
+  color: white;
+  font-style: italic;
 }
 
 /* #assetName {
