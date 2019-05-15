@@ -1,6 +1,11 @@
 <template lang="html">
   <div v-if="shrimpy_old[0]" class="currencies-list">
-    <h3>Buy more currencies :-</h3>
+    <!-- <h3 @click='toggle = !toggle'>Click here to add more currencies to your portfolio.</h3> -->
+      <button class="add-more-button" @click='toggle = !toggle'> Click here to add more currencies to your portfolio. </button>
+      <div v-show='!toggle'>
+        &emsp;<br>
+      </div>
+      <div v-show='toggle'>
     <table id="currencies-table">
       <thead>
         <tr>
@@ -14,6 +19,7 @@
           <CurrencyListItem v-for="(currency, index) in shrimpy_old" :currency="currency" :key="index" :shrimpy_icons="shrimpy_icons" :portfolio="portfolio"/>
       </tbody>
     </table>
+    </div>
   </div>
 </template>
 
@@ -21,6 +27,11 @@
 import CurrencyListItem from '@/components/CurrencyListItem';
 
 export default {
+  data () {
+  return {
+    toggle: false
+  }
+},
   props: ['shrimpy_old', 'shrimpy_icons', 'portfolio'],
   components: {CurrencyListItem}
 }
@@ -30,6 +41,7 @@ export default {
 
 .currencies-list {
   /* max-height: 300px; */
+  text-align: center;
   overflow: auto;
 }
 
@@ -53,9 +65,29 @@ table thead th {
   justify-content: space-around;
 }
 
+table {
+  margin: 0 auto;
+}
 table  tbody{
   display:block;
   height:300px;
   overflow:auto;
+}
+
+.add-more-button {
+  /* font-family: 'Merriweather', serif; */
+  background-color: #84CEEB;
+  border-color: darkblue;
+  color: black;
+  text-align: center;
+  /* height: 15px; */
+  /* width: 25%; */
+  border-radius: 15px;
+  padding-bottom: 3px;
+  padding-top: 3px;
+  font-size: 20px;
+  display: center;
+  position: center;
+  margin-bottom: 10px;
 }
 </style>
