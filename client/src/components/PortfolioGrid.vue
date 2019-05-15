@@ -119,7 +119,7 @@ export default {
   font-family: 'Merriweather', serif;
   border-radius: 15px;
   padding-bottom: 30px;
-  
+
 }
 .portfolio{
   background-color: white;

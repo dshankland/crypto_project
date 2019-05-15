@@ -26,7 +26,7 @@ button {
   height: 30px;
   color: white;
   border: none;
-  background-color: #8860d0;
+  background-color: darkblue;
   width: 90px;
   font-size: 15px;
   font-weight: bold;
@@ -35,7 +35,7 @@ button {
 }
 
 button:hover {
-  color: #0c3f59;
+  color: darkblue;
   background-color: white;
 }
 
@@ -46,7 +46,7 @@ button:active {
 
 button:focus {
     outline: none;
-    border: 1px solid #8860d0;
+    border: 1px solid darkblue;
     color: #0c3f59;
     background-color: white;
 }
