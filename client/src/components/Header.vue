@@ -16,7 +16,7 @@ export default {
 .header  {
   font-family: 'Medieval Sharp', cursive;
   position: relative;
-  background-color: #ADD8E6;
+  background-color: #84ceeb;
   font-size: 45px;
   max-width: 100%;
   margin-left: auto;
