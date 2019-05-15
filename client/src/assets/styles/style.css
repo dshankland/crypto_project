@@ -1,12 +1,12 @@
 body {
-  background-color: black;
+  background-color: #264592;
   max-width: 800px;
   margin: auto;
 }
 
 #main {
  background-color: #e5edf9;
- font-family: 'Arial', sans-serif;
+ font-family: 'Questrial', sans-serif;
 }
 
 #header  {
