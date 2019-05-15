@@ -2,20 +2,16 @@
   <div id="portfolio-list">
     <link href="https://fonts.googleapis.com/css?family=Graduate|Merriweather" rel="stylesheet">
 
-    <!-- <button class="newAsset" v-on:click="postAsset(payload)">Add new</button> -->
     <div class="portfolio" v-for="asset in portfolio">
-
       <div id="asset-container">
         <div :id="asset._id">
-
-        </div>
+          </div>
         <img class="logo" :src="asset.url"> </img>
         <h2 id="assetName">{{asset.name}} ({{asset.code}})</h2>
         <h4>Price USD: {{getPrice(asset.code) | toCurrency}}</h4>
         <label class="label" for="id">You are currently holding</label>
         <input id="USD" type="number" name="amount" :value="asset.amount" :id="asset._id" v-on:change="increaseAsset"/>
         <br><button id="RmvBtn" v-on:click="deleteAsset(asset)">Remove</button></br>
-
       </div>
     </div>
   </div>
@@ -41,12 +37,10 @@ export default {
       eventBus.$emit('delete-asset', asset._id)
     },
     getPrice(assetSymbol) {
-
       return this.shrimpy.get(assetSymbol.toLowerCase()).priceUsd;
     },
     increaseAsset: function(e) {
       const value = e.target.value;
-
       const id = e.target.id;
       console.log('id', id);
 
@@ -57,11 +51,9 @@ export default {
       PortfolioService.putAsset(id, asset) // need id to tell it which object to update, asset is the full object that was getting passed in
       // of which the value (in the input box) was setting the amount key in asset object. The putAsset then updates the full asset object
       .then(res => {
-        console.log('bus', res);
-        eventBus.$emit('refresh-data') // sends data back to portfolioView .. refreshing page, asset will be updated
+      eventBus.$emit('refresh-data') // sends data back to portfolioView .. refreshing page, asset will be updated
       })
     }
-
   },
   watch: {
     poloniex_map: function(newValue, oldValue)  {
@@ -95,7 +87,6 @@ export default {
             name: '',
             data:  value
           }],
-
         })
       });
     }
