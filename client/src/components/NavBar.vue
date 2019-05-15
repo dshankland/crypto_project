@@ -26,7 +26,7 @@ button {
   height: 30px;
   color: white;
   border: none;
-  background-color: #0c3f59;
+  background-color: #8860d0;
   width: 90px;
   font-size: 15px;
   font-weight: bold;
@@ -46,14 +46,14 @@ button:active {
 
 button:focus {
     outline: none;
-    border: 1px solid #0c3f59;
+    border: 1px solid #8860d0;
     color: #0c3f59;
     background-color: white;
 }
 
 #nav-bar {
 
-  background-color: #4789a3;
+  background-color: #5680e9;
   height: 30px;
   width: 100%;
 }
