@@ -4,7 +4,15 @@
 
 <script>
 export default {
-  props: ['text']
+  props: ['value'],
+  filters: {
+    toTwoDecPlaces: function (value) {
+      return value.toFixed(2);
+    },
+    toCurrency: function (value) {
+      return new Intl.NumberFormat('en-US',  { style: 'currency', currency: 'USD' }).format(value);
+    }
+  }
 }
 </script>
 

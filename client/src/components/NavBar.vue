@@ -1,8 +1,12 @@
 <template lang="html">
-<nav id="nav-bar">
-  <router-link :to="{ name:'home'}">Home</router-link>
-  <router-link :to="{ name:'portfolio'}">Portfolio</router-link>
-</nav>
+
+  <nav id="nav-bar">
+    <div class="nav">
+      <router-link tag="span" :to="{ name:'home'}"><button>Home</button></router-link>
+      <router-link tag="span" :to="{ name:'portfolio'}"><button>Portfolio</button></router-link>
+    </div>
+  </nav>
+
 </template>
 
 <script>

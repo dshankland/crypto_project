@@ -9,7 +9,19 @@
 </template>
 
 <script>
+import PortfolioGrid from '@/components/PortfolioGrid.vue';
+import CurrenciesList from '@/components/CurrenciesList.vue';
+import PortfolioTrendChart from '@/components/PortfolioTrendChart.vue';
+
 export default {
+  components: {
+    PortfolioGrid,
+    CurrenciesList,
+    PortfolioTrendChart
+  },
+
+  props: ["portfolio", "shrimpy", "shrimpy_old", "shrimpy_icons", "poloniex", "poloniex_map", "cryptoGraphTotalValues"]
+
 }
 </script>
 
