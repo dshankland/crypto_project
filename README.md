@@ -38,5 +38,5 @@ npm run server:dev
 ```
 cd ../client
 npm install
-num run serve
+npm run serve
 ```
